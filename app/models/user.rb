@@ -19,7 +19,7 @@ class User < ApplicationRecord
   end
 
   def titleize_last_name
-    self.last_name = self.last_name.split.map do |word|
+    self.last_name = self.last_name.downcase.split.map do |word|
       if ["del", "la", "de"].include?(word)
         word
       else
