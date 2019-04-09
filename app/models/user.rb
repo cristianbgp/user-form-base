@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true , length: { in: 2..20 }
   validates :email, confirmation: true, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ }
   validates :email_confirmation, presence: true
-  validates :password, presence: true, length: { minimum: 8 }, confirmation: true
+  validates :password, presence: true, length: { minimum: 8 }, confirmation: true, format: { with: /.*[0-9].*/ }
   validates :password_confirmation, presence:true
   validates :password_hint, length: { maximum: 100 }
 
