@@ -15,12 +15,12 @@ class User < ApplicationRecord
   end
 
   def capitalize_first_name
-    self.first_name.capitalize!
+    self.first_name = self.first_name.titleize
   end
 
   def titleize_last_name
     self.last_name = self.last_name.downcase.split.map do |word|
-      if ["del", "la", "de"].include?(word)
+      if ["del", "la", "de", "las"].include?(word)
         word
       else
         word.capitalize
